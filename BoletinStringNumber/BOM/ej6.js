@@ -21,6 +21,7 @@ function abrirVentana(){
     let contenido = '<input type="button" id="ra" value="Redimensionar Absoluto"> <input type="button" id="rr" value="Redimensionar Relativo">'
     
     nuevaVentana.document.write(contenido);
+    redimensionar();
     nuevaVentana.document.close();
   
 
