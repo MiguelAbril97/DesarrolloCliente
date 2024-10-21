@@ -26,7 +26,7 @@ switch (select){
 
     case 4:
         arr=sumaArgsPares(4,5,9,3,5,2,8);
-        alert(arr.toString());
+        alert(arr);
         break;
 }
 
@@ -62,19 +62,16 @@ function uneArrays(...parametros){
    return conjunto;
 }
 
-function sumaArgsPares(){
-    var sum=0;
 
-    for(let i of arguments){
-        
-        if( i%2==0 ){
+function sumaArgsPares(...params){
+    /*let checkPar = (num) => num % 2 == 0;
+    let sumatorio = (total,num) => total+=num;
+    var pares = params.filter(checkPar);
+    let suma = pares.reduce(sumatorio,0);*/
 
-            sum+=i;
-
-        }
-
-    }
-
-    return sum;
+    let suma = params.filter((num) => num % 2 == 0).reduce((total,num) => total += num);
+    
+    return suma;
+    
 }
 
