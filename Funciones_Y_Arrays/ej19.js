@@ -33,7 +33,15 @@ let respuesta;
 
 var buscarApellidos = (arr, apellidos) => arr.filter((pos) => pos.filter((dato) => dato == apellidos).length != 0);
 //var buscarApellidos = (arr, apellidos) =>  arr.map((pos) => pos.filter((dato) => dato == apellidos));
+/*
+Implementar funciones para el ejercicio anterior para imprimir los datos y para buscar una persona por apellidos, por DNI o por edad. ¿cómo podríamos optimizar la búsqueda? 
+Añade al ejercicio anterior las siguientes funciones, utiliza además las funciones creadas anteriormente (utiliza los métodos ya implementados de Array y funciones flecha):
+mayorEdad: filtrará del array los usuarios mayores de edad e imprimirá sus datos en una nueva ventana.
+menorEdad: filtrará del array los usuarios menores de edad e imprimirá en una nueva ventana los días y/o años que le quedan para su mayoría de edad.
+modificaDatos: solicitará qué datos modificar, el dato por el que se va a modificar y el dni del usuario.
+eliminaUsuario: elimina un usuario del array solicitando su dni. Además solicita confirmación antes de eliminar. 
 
+*/
 switch(select){
    
     case 1: 
