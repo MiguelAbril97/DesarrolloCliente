@@ -31,8 +31,8 @@ select = parseInt(entrada);
 
 let respuesta;
 
-
-var buscarApellidos = (arr, apellidos) =>  arr.map((pos) => pos.filter((dato) => dato == apellidos));
+var buscarApellidos = (arr, apellidos) => arr.filter((pos) => pos.filter((dato) => dato == apellidos).length != 0);
+//var buscarApellidos = (arr, apellidos) =>  arr.map((pos) => pos.filter((dato) => dato == apellidos));
 
 switch(select){
    
