@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Registro</title>
+    <script type="text/javascript" src="ej2.js"></script>
+</head>
+<body>
+
+<form style="display: flex; flex-direction: column; width: 30%; background-color: bisque; padding: 10px; justify-content: space-evenly;">
+    <label for="nombre">Nombre</label>
+        <div>
+            <input type="text" id="nombre" placeholder="Nombre">
+            <input type="text" id="apellidos" placeholder="Apellidos">
+        </div>
+
+    <label for="usuario">Nombre de usuario</label>
+    <input type="text" id="usuario" placeholder="@gmail.com">
+    <label for="password">Contraseña</label>
+    <input type="password" id="password" placeholder="Contraseña" pattern="[A-Za-z0-9%*¡$]">
+
+ 
+    <label for="confirm_password">Confirma tu contraseña</label>
+    <input type="password" id="confirm_password" placeholder="Confirmar contraseña">
+
+
+    <label for="fecha_nacimiento">Fecha de nacimiento</label>
+    <div>
+        <input type="text" placeholder="Día" id="dia" maxlength="2" style="width: 20px;">
+    <select id="mes">
+        <option value="" disabled selected>Mes</option>
+        <option value="1">Enero</option>
+        <option value="2">Febrero</option>
+        <option value="3">Marzo</option>
+        <option value="4">Abril</option>
+        <option value="5">Mayo</option>
+        <option value="6">Junio</option>
+        <option value="7">Julio</option>
+        <option value="8">Agosto</option>
+        <option value="9">Septiembre</option>
+        <option value="10">Octubre</option>
+        <option value="11">Noviembre</option>
+        <option value="12">Diciembre</option>
+
+    </select>
+    <input type="text" placeholder="Año" maxlength="4" id = "anyo" style="width: 50px;">
+    <input type="text" id="edad" readonly placeholder="" style="width: 50px;">
+    </div>
+
+ 
+    <label for="sexo">Sexo</label>
+    <select id="sexo">
+        <option value="hombre">Hombre</option>
+        <option value="mujer">Mujer</option>
+        <option value="otro">Otro</option>
+    </select>
+
+   
+    <label for="telefono">Teléfono móvil</label>
+    <div>
+        <select id="prefijo">
+            <option value="+34">🇪🇸 +34</option>
+            <option value="+1">🇺🇸 +1</option>
+            <option value="+52">🇲🇽 +52</option>
+        </select>
+        <input type="text" id="telefono" placeholder="Número de teléfono" maxlength="9">
+    </div>
+
+ 
+    <label for="correo">Tu dirección de correo electrónico actual</label>
+    <input type="text" id="correo" placeholder="Correo electrónico actual">
+
+    <input type="button" id="btn" value="Comprobar" style="max-width: 20%;">
+
+</form>
+
+</body>
+</html>
