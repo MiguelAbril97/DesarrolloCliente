@@ -10,7 +10,12 @@ function inicializar(){
 function color(e){
     let elemento = e.currentTarget;
     let form = elemento.closest('form');
-    if(elemento.value == rojo){
+    if(elemento.value == "rojo"){
         form.style.backgroundColor = "red";
+    }else  if(elemento.value == "verde"){
+        form.style.backgroundColor = "green";
+    }else{
+        form.style.backgroundColor = "blue";
     }
+
 }

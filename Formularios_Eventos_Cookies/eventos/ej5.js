@@ -5,13 +5,23 @@ function inicializar(){
 }
 
 function entrada(){
-    txt=document.getElementById('sms').value;
-    rg = new RegExp(/[A-Za-z0-9,. ñ]/gm);
-    
+    let txt=document.getElementById('sms').value;
+    let rg = new RegExp(/^[A-Za-z0-9,.ñ]+/i);
+    let btn = document.getElementById('btn');
+    let mx = 145;
+    let long  = document.getElementById('sms').attributes.length;
+    long = mx - long;
+    let caracteres = document.getElementById('caracteres');
+
     if(rg.test(txt)){
-        document.getElementById('btn').setAttribute('disabled',false);
+       btn.disabled = false;
+       caracteres.textContent="Quedan "+long+" caracteres restates";
+
+    }else if(txt=""){
+       btn.disabled = true;
+
     }else{
-        document.getElementById('btn').setAttribute('enabled',true);
+        btn.disabled = true;
     }
 
 }
