@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Café</title>
+    <script type="text/javascript" src="ej1.js"></script>
+</head>
+<body>
+    <h1>Formulario de Pedido de Café</h1>
+    <form method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <br><br>
+
+        <label for="habitacion">Número de habitación:</label>
+        <input type="number" id="habitacion" name="habitacion" required>
+        <br><br>
+
+        <p>Seleccione su tipo de café:</p>
+
+        <input type="radio" id="espresso" name="cafe" value="espresso" required>
+        <label for="espresso">Espresso</label><br>
+
+        <input type="radio" id="cappuccino" name="cafe" value="cappuccino">
+        <label for="cappuccino">Cappuccino</label><br>
+
+        <input type="radio" id="moka" name="cafe" value="moka">
+        <label for="moka">Moka</label><br>
+
+        <input type="radio" id="latte" name="cafe" value="latte">
+        <label for="latte">Latte</label><br>
+
+        <input type="radio" id="americano" name="cafe" value="americano">
+        <label for="americano">Americano</label><br>
+
+        <br>
+        <input type="button " value="Enviar pedido" id='btn'>
+
+        <div id="respuesta"></div>
+    </form>
+</body>
+</html>
