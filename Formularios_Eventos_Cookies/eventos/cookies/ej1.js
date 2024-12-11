@@ -37,6 +37,16 @@ function enviar(){
    if(document.cookie.includes('nombre=')){
     let expira = new Date ();
     expira.setTime(expira.getTime()+(24*60*60*1000));
+    let cafe = document.getElementsByName('cafe');
+    let cafePreferido ="";
+    
+    for(let i=0; i<cafe.length; i++){
+        if(cafe[i].checked){
+            cafePreferido=cafe[i].value;
+        }
+    }
+    document.cookie = ("cafe="+cafePreferido+';expires='+expira);
+    
     let posInicial = document.cookie.slice(document.cookie.search('pedidos='));
     let valor = posInicial.slice(posInicial.indexOf('=')+1, posInicial.indexOf(';'));
     valor = parseInt(valor)+1;
