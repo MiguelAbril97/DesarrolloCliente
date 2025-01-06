@@ -1,66 +1,31 @@
-window.addEventListener('load',inicializar)
-var lista;
+window.addEventListener("load",inicializar);
 
 function inicializar(){
-    
-    document.getElementById('cuadrado').addEventListener('click',cuadrado);
-    document.getElementById('anyadirFinal').addEventListener('click',anyadirFinal);
-    document.getElementById('anyadirMedio').addEventListener('click',anyadirMedio);
-    document.getElementById('anyadirPrincipio').addEventListener('click',anyadirPrincipio);
-    document.getElementById('anyadirPersonalizado').addEventListener('click',anyadirPersonalizado);
-
-    lista = document.getElementsByTagName("ul");
-
+    document.getElementById("ej1").addEventListener('click', ejercicio1);
+    document.getElementById("ej2").addEventListener('click', ejercicio2);
 
 }
 
-function cuadrado(){
-    for(let i=0; i<lista.length;i++){
-        lista[i].setAttribute('type','square');
-    }
-} 
+function ejercicio1(){
+    let testdiv = document.createElement('div');
 
-function anyadirFinal(){
-    let nuevo = document.createElement('li');
-    let txt = document.createTextNode('Toyota Celica');
-    nuevo.appendChild(txt);
-//Lo añado al final
-    lista[0].appendChild(nuevo);
+    testdiv.setAttribute('id','testdiv'),
+    document.body.appendChild(testdiv);
 
+    let para = document.createElement('p'); 
+    let txt1 = document.createTextNode("Este es el");
+    para.appendChild(txt1); 
+
+    let enfasis = document.createElement('em');
+    let txt2 = document.createTextNode(' contenido');
+    enfasis.appendChild(txt2);
+    para.appendChild(enfasis);
+
+    let txt3 = document.createTextNode(' de mi párrafo');
+    para.appendChild(txt3);
+    testdiv.appendChild(para);
 }
 
-function anyadirPrincipio(){
-    let nuevo = document.createElement('li');
-    let txt = document.createTextNode('Citroen C3');
-    nuevo.appendChild(txt);
-    lista[0].insertBefore(nuevo,lista[0].children[0]);
-}
-
-function anyadirMedio(){
-    let nuevo = document.createElement('li');
-    let txt = document.createTextNode('Audi R8');
-    nuevo.appendChild(txt);
-    lista[0].insertBefore(nuevo,lista[0].children[3]);
-
-    //Tambien se podria insertar asi
-    /*
-    let li = document.getElementsByTagName('li');
-    lista[0].insertBefore(nuevo,li[3]);
-    */
-}
-
-function anyadirPersonalizado(){
-    let li = document.getElementsByTagName('li');
-    let arr =[...li]
-    let txt = prompt("¿Junto a que modelo?");
-    let nuevo = document.createElement('li');
-    let nodo = document.createTextNode('Fiat Panda');
-    nuevo.appendChild(nodo);
-
-    let posicion = arr.findIndex((elemento) => elemento.textContent.includes(txt));
-
-    lista[0].insertBefore(nuevo,lista[0].children[posicion]);
-    posicion++;
-    lista[0].insertBefore(nuevo,lista[0].children[posicion]);
-
+function ejercicio2(){
+    window.open('ej2.html');
 }
