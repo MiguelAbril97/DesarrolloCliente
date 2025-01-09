@@ -17,17 +17,50 @@ function inicializar(){
 
     recorrerJson(json);
 
-    let imagenes = document.getElementsByTagName('img');
-
-    for(let i=0; i<imagenes.length; i++){
-        imagenes[i].addEventListener('click',ocultar);
-    }
+    let imagenes = [...document.getElementsByTagName('img')];
+    
+    imagenes.forEach(elemento => elemento.addEventListener('click',ocultar));
+    
 }
 
 function recorrerJson(json){
+    
     let div = document.getElementById('todas-las-imagenes');
-    let lista = document.createElement('ul');
+    let listaExterna = document.createElement('ul');
+    let li;
+    let img; 
+    let p;
+    let listaInterna;
 
+    json.forEach(elemento =>{
+        li = document.createElement('li');
+        img = document.createElement('img');
+        img.setAttribute('src',elemento.src);
+        li.appendChild(img);
+
+        let descripcion = document.createTextNode(elemento.desc);
+        p = document.createElement('p')
+        p.appendChild(descripcion);
+        li.appendChild(p);
+
+        listaInterna = document.createElement('ul');
+        elemento.specs.forEach(item => {
+            let liInterno = document.createElement('li');
+            let txt = document.createTextNode(item);
+            
+            liInterno.appendChild(txt);
+            listaInterna.appendChild(liInterno);
+        })
+        
+        li.appendChild(listaInterna);
+        listaExterna.appendChild(li);
+        
+    })
+
+    div.appendChild(listaExterna);
+
+    
+    /*
     for(let i=0; i<json.length; i++){
         let bloque = document.createElement('li');
         let img = document.createElement('img');
@@ -41,8 +74,8 @@ function recorrerJson(json){
         p.appendChild(txt);
         bloque.appendChild(p);
         
-        let ul = document.createElement('ul');
-        ul.setAttribute('id','specs');
+        let listaInterna = document.createElement('ul');
+        listaInterna.setAttribute('id','specs');
         
         let especificaciones = [...json[i].specs];
 
@@ -51,17 +84,17 @@ function recorrerJson(json){
             let texto = document.createTextNode(especificaciones[i]);
 
             li.appendChild(texto);
-            ul.appendChild(li);
+            listaInterna.appendChild(li);
         }
 
         bloque.appendChild(ul);
       
-        lista.appendChild(bloque);
+        listaDesordenada.appendChild(bloque);
 
     }
 
-    div.appendChild(lista);
-
+    div.appendChild(listaDesordenada);
+*/
 }
 
 
