@@ -2,8 +2,8 @@ window.addEventListener('load',inicializar);
 //https://picsum.photos/id/237/200/300
 var json = 
 [
-{src:"https://fastly.picsum.photos/id/15/2500/1667.jpg?hmac=Lv03D1Y3AsZ9L2tMMC1KQZekBVaQSDc1waqJ54IHvo4", desc: "descripcion1", specs:["spec11", "spec12"]},
-{src:"https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU", desc: "descripcion2", specs:["spec21", "spec22"]},
+{src:"imagen.jpeg", desc: "descripcion1", specs:["spec11", "spec12"]},
+{src:"imagen2.jpeg", desc: "descripcion2", specs:["spec21", "spec22"]},
 ];
 
 function inicializar(){
@@ -16,6 +16,12 @@ function inicializar(){
     document.body.appendChild(todo);
 
     recorrerJson(json);
+
+    let imagenes = document.getElementsByTagName('img');
+
+    for(let i=0; i<imagenes.length; i++){
+        imagenes[i].addEventListener('click',ocultar);
+    }
 }
 
 function recorrerJson(json){
@@ -37,9 +43,21 @@ function recorrerJson(json){
         
         let ul = document.createElement('ul');
         ul.setAttribute('id','specs');
+        
+        let especificaciones = [...json[i].specs];
 
+        for(let i=0;i<especificaciones.length;i++){
+            let li = document.createElement('li');
+            let texto = document.createTextNode(especificaciones[i]);
+
+            li.appendChild(texto);
+            ul.appendChild(li);
+        }
+
+        bloque.appendChild(ul);
       
         lista.appendChild(bloque);
+
     }
 
     div.appendChild(lista);
@@ -47,3 +65,18 @@ function recorrerJson(json){
 }
 
 
+function ocultar(e){
+    let elemento = e.currentTarget;
+    let padre = elemento.parentNode;
+    let hijos = [...padre.childNodes];
+
+    hijos.forEach(elemento => {
+            if(elemento != hijos[0] && elemento.style.display != 'none'){
+                elemento.style.display ="none";
+            }else{
+                elemento.style.display ="block";
+            }
+        }
+    );
+   
+}
